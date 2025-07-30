@@ -1,4 +1,5 @@
-import { Sidebar, SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/shadcn/sidebar";
+import Sidebar from "@/components/ui/sidebar";
 
 export default function DashboardLayout({
   children,
@@ -6,11 +7,13 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <SidebarProvider>
-      <div className="flex">
+    <div>
+      <SidebarProvider>
         <Sidebar />
+
+        <SidebarTrigger />
         <main className="flex-1">{children}</main>
-      </div>
-    </SidebarProvider>
+      </SidebarProvider>
+    </div>
   );
 }
